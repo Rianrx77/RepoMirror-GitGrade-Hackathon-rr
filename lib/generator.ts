@@ -1,4 +1,5 @@
-import { RepositoryData, EvaluationResult } from './evaluator'
+import { RepositoryData } from '@/types'
+import { EvaluationResult } from './evaluator'
 
 /**
  * Generates a written summary of the repository evaluation
