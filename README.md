@@ -1,6 +1,6 @@
-# GitGrade - AI-Powered Repository Evaluator
+# RepoMirror - AI-Powered Repository Evaluator
 
-GitGrade is an AI-powered web application that evaluates public GitHub repositories and provides honest feedback, actionable guidance, and personalized roadmaps for improvement.
+RepoMirror is an AI-powered web application that evaluates public GitHub repositories and provides honest feedback, actionable guidance, and personalized roadmaps for improvement.
 
 ## 🎯 Features
 
@@ -12,7 +12,7 @@ GitGrade is an AI-powered web application that evaluates public GitHub repositor
 
 ## 📊 Evaluation Dimensions
 
-GitGrade evaluates repositories across 6 weighted dimensions:
+RepoMirror evaluates repositories across 6 weighted dimensions:
 
 1. **Code Quality & Readability** (20% weight)
    - Language diversity
