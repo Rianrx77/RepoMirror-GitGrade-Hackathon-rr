@@ -5,6 +5,9 @@ import RepositoryInput from '@/components/RepositoryInput'
 import LoadingState from '@/components/LoadingState'
 import ResultsDisplay from '@/components/ResultsDisplay'
 import ThemeToggle from '@/components/ThemeToggle'
+import FloatingElements from '@/components/FloatingElements'
+import FAQ from '@/components/FAQ'
+import Footer from '@/components/Footer'
 import { AnalysisResult } from '@/types'
 
 export default function Home() {
@@ -41,9 +44,10 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300 relative">
+      <FloatingElements />
       <ThemeToggle />
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
@@ -71,7 +75,11 @@ export default function Home() {
         )}
 
         {results && <ResultsDisplay results={results} />}
+
+        <FAQ />
       </div>
+      
+      <Footer />
     </main>
   )
 }
