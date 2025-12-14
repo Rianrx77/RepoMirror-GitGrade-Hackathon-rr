@@ -4,6 +4,7 @@ import { useState } from 'react'
 import RepositoryInput from '@/components/RepositoryInput'
 import LoadingState from '@/components/LoadingState'
 import ResultsDisplay from '@/components/ResultsDisplay'
+import ThemeToggle from '@/components/ThemeToggle'
 import { AnalysisResult } from '@/types'
 
 export default function Home() {
@@ -40,15 +41,16 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
+      <ThemeToggle />
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              GitGrade
+          <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+              RepoMirror
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
             AI-powered repository evaluator that provides honest feedback and actionable guidance
           </p>
         </div>
@@ -58,12 +60,12 @@ export default function Home() {
         {loading && <LoadingState />}
 
         {error && (
-          <div className="mt-8 bg-red-50 border border-red-200 rounded-lg p-6">
+          <div className="mt-8 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 transition-colors duration-300">
             <div className="flex items-center">
-              <svg className="w-6 h-6 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-red-600 dark:text-red-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <p className="text-red-800 font-medium">{error}</p>
+              <p className="text-red-800 dark:text-red-300 font-medium transition-colors duration-300">{error}</p>
             </div>
           </div>
         )}

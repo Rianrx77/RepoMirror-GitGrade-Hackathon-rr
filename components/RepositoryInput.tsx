@@ -36,10 +36,10 @@ export default function RepositoryInput({ onAnalyze, disabled }: RepositoryInput
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-gray-900/50 p-8 mb-8 transition-colors duration-300">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="repo-url" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="repo-url" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
             GitHub Repository URL
           </label>
           <div className="flex gap-4">
@@ -52,19 +52,19 @@ export default function RepositoryInput({ onAnalyze, disabled }: RepositoryInput
                 setError(null)
               }}
               placeholder="https://github.com/username/repository"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent outline-none transition-all"
               disabled={disabled}
             />
             <button
               type="submit"
               disabled={disabled}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95"
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95"
             >
               {disabled ? 'Analyzing...' : 'Analyze Repository'}
             </button>
           </div>
           {error && (
-            <p className="mt-2 text-sm text-red-600">{error}</p>
+            <p className="mt-2 text-sm text-red-600 dark:text-red-400 transition-colors duration-300">{error}</p>
           )}
         </div>
       </form>

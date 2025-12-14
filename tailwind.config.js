@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './contexts/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -20,6 +22,9 @@ module.exports = {
           800: '#075985',
           900: '#0c4a6e',
         },
+      },
+      transitionProperty: {
+        'theme': 'background-color, border-color, color, fill, stroke',
       },
     },
   },
