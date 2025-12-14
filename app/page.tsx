@@ -1,0 +1,76 @@
+'use client'
+
+import { useState } from 'react'
+import RepositoryInput from '@/components/RepositoryInput'
+import LoadingState from '@/components/LoadingState'
+import ResultsDisplay from '@/components/ResultsDisplay'
+import { AnalysisResult } from '@/types'
+
+export default function Home() {
+  const [loading, setLoading] = useState(false)
+  const [results, setResults] = useState<AnalysisResult | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleAnalyze = async (repoUrl: string) => {
+    setLoading(true)
+    setError(null)
+    setResults(null)
+
+    try {
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ repoUrl }),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to analyze repository')
+      }
+
+      const data = await response.json()
+      setResults(data)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              GitGrade
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            AI-powered repository evaluator that provides honest feedback and actionable guidance
+          </p>
+        </div>
+
+        <RepositoryInput onAnalyze={handleAnalyze} disabled={loading} />
+
+        {loading && <LoadingState />}
+
+        {error && (
+          <div className="mt-8 bg-red-50 border border-red-200 rounded-lg p-6">
+            <div className="flex items-center">
+              <svg className="w-6 h-6 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-red-800 font-medium">{error}</p>
+            </div>
+          </div>
+        )}
+
+        {results && <ResultsDisplay results={results} />}
+      </div>
+    </main>
+  )
+}
+
