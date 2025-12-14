@@ -35,6 +35,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# testing
+coverage/
+.nyc_output/
+*.test.ts.snap
+
 # dependencies
 node_modules/
 
