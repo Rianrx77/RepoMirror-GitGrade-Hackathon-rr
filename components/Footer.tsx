@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Made by */}
           <p className="text-gray-700 dark:text-gray-300 font-medium transition-colors duration-300">
             Made by{' '}
-            <span className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <span className="font-bold bg-gradient-to-r from-red-900 to-red-500 dark:from-red-300 dark:to-red-200 bg-clip-text text-transparent w-4 h-4 transition-transform duration-300 group-hover:translate-x-1">
               Rian Renju
             </span>
           </p>
@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Built for */}
           <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
             Built for{' '}
-            <span className="font-semibold text-gray-900 dark:text-white">GitGrade Hackathon</span>
+            <span className="font-semibold group  gap-2 text-gray-900 dark:text-gray-300 hover:text-yellow-500 hover:dark:text-yellow-200 transition-all duration-300 hover:scale-110">GitGrade Hackathon</span>
             {' '}⚡ · Tech:{' '}
             <span className="font-mono text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-500">
               Next.js · TypeScript · Tailwind CSS
@@ -33,7 +33,7 @@ export default function Footer() {
               href="https://github.com/Rianrx77"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110"
+              className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-all duration-300 hover:scale-110"
             >
               <svg
                 className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
@@ -72,4 +72,5 @@ export default function Footer() {
     </footer>
   )
 }
+
 

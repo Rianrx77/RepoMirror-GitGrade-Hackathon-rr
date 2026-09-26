@@ -50,7 +50,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <span className="text-blue-400 dark:text-blue-200">
               RepoMirror
             </span>
           </h1>
